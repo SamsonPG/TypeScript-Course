@@ -106,15 +106,30 @@ console.log("the result is " + nameResult);
 //challenge 5
 
 function processInput(parameter: string | number): string {
-  if (typeof parameter === 'number') {
+  if (typeof parameter === "number") {
     let result = 2 * parameter;
     return `the result is ${result}`;
-  }
-  else{
-    return parameter.toUpperCase()
+  } else {
+    return parameter.toUpperCase();
   }
 }
 
 console.log(processInput(10));
 
 console.log(processInput("hello"));
+
+//challenge 6
+function processData(
+  input: string | number,
+  config: { reverse: boolean } = { reverse: false }
+): string | number {
+  if (typeof input === "number") return input * 2;
+  else
+    return config.reverse
+      ? input.toUpperCase().split("").reverse().join("")
+      : input.toUpperCase();
+}
+
+console.log(processData(2));
+console.log(processData("helo"));
+console.log(processData("helo2", { reverse: true }));
