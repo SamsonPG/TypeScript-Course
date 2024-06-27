@@ -1,4 +1,5 @@
 //chalenge 1
+
 let greeting: string = "hello, typescript!";
 greeting = greeting.toUpperCase();
 
@@ -16,6 +17,7 @@ age='thirty'
 isAdult = 'yes'
 
 console.log(greeting,age,isAdult);
+
 //challenge 2
 
 let orderStatus: 'processing'|'shipped'|'delivered'='processing'
@@ -36,6 +38,7 @@ let bb:any = 'jk'
 let vall:[]=[w,2,]
 
 //challenge 3
+
 let temperatures: number[] = [32,54,2,32]
 //temperatures.push('hot')
 
@@ -49,3 +52,6 @@ let colors:string[] = ['red','blue']
 //colors.push(true)
 
 let mixedArray: (number | string)[] = [1,2,3,4]
+
+//challenge 4
+
