@@ -180,6 +180,37 @@ console.log('the upgraded ram '+ omen.upgradeRam(4))
 console.log(omen);
 
 //challenge 9
+
+function getEmployee(): Person | DogOwner | Manager2{
+
+  const random = Math.random();
+  
+  if(random<0.33)
+    {
+      return{
+        name:'john'
+      }
+    }
+    else if (random<0.66){
+      return{
+        name:'jane',
+        dogName:'max'
+      }
+    }
+    else{
+      return{
+        name:'bob',
+        managePeople(){
+          console.log('managing people...')
+        },
+        delegateTasks(){
+          console.log('delegating tasks...')
+        }
+      }
+    }
+  }
+
+
 interface Person{
   name:string
 }
@@ -190,34 +221,20 @@ interface Manager2 extends Person{
 managePeople():void,
 delegateTasks():void
 }
-function getEmployee(): Person | DogOwner | Manager2{
 
-const random = Math.random();
-
-if(random<0.33)
-  {
-    return{
-      name:'john'
-    }
-  }
-  else if (random<0.66){
-    return{
-      name:'jane',
-      dogName:'max'
-    }
-  }
-  else{
-    return{
-      name:'bob',
-      managePeople(){
-        console.log('managing people...')
-      },
-      delegateTasks(){
-        console.log('delegating tasks...')
-      }
-    }
-  }
-}
 
 const employee: Person | DogOwner | Manager2= getEmployee();
+console.log("random output");
 console.log(employee);
+
+//challenge 10
+
+enum UserRole { Admin,Manager,Employee}
+type User ={id:number,name:string,role:UserRole, contact:[string,string]}
+
+function createUser(user:User):User{
+return user
+}
+
+const Userr = createUser({id:3,name:'hfo',role:UserRole.Employee,contact:['em.com','54534']})
+console.log(Userr);
