@@ -178,3 +178,46 @@ const omen:Computer={
 omen.storage=256
 console.log('the upgraded ram '+ omen.upgradeRam(4))
 console.log(omen);
+
+//challenge 9
+interface Person{
+  name:string
+}
+interface DogOwner extends Person{
+dogName:string
+}
+interface Manager2 extends Person{
+managePeople():void,
+delegateTasks():void
+}
+function getEmployee(): Person | DogOwner | Manager2{
+
+const random = Math.random();
+
+if(random<0.33)
+  {
+    return{
+      name:'john'
+    }
+  }
+  else if (random<0.66){
+    return{
+      name:'jane',
+      dogName:'max'
+    }
+  }
+  else{
+    return{
+      name:'bob',
+      managePeople(){
+        console.log('managing people...')
+      },
+      delegateTasks(){
+        console.log('delegating tasks...')
+      }
+    }
+  }
+}
+
+const employee: Person | DogOwner | Manager2= getEmployee();
+console.log(employee);
