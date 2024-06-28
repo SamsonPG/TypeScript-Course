@@ -171,7 +171,8 @@ const omen:Computer={
   brand:'asus', 
   ram:8,
   upgradeRam(ramU:number):number{
-    return this.ram+ramU
+    this.ram +=ramU
+    return this.ram
   }
 }
 omen.storage=256
