@@ -133,3 +133,47 @@ function processData(
 console.log(processData(2));
 console.log(processData("helo"));
 console.log(processData("helo2", { reverse: true }));
+
+//challenge 7
+
+type Employee = {id:number,name:string,department:string}
+
+type Manager = {id:number,name:string,employees:Employee[]}
+
+type Staff = Employee|Manager
+
+function printStaffDetails(staff:Staff):void{
+  if('employees' in staff)
+    console.log(`${staff.name} is manager of ${staff.employees.length} employees`)
+else
+    console.log(`${staff.name} is an employee of ${staff.department}`)
+}
+
+const sam:Employee={id:23,name:'sa',department:'spo'}
+const samss:Employee={id:323,name:'sams',department:'spo'}
+const sag:Manager={id:23,name:'sag',employees:[sam,samss]}
+
+printStaffDetails(sam)
+
+printStaffDetails(sag)
+
+//challenge 8
+interface Computer{
+  readonly id:number,
+  brand:string,
+  ram:number,
+  storage?:number,
+  upgradeRam(ramU:number):number,
+}
+
+const omen:Computer={
+  id:123,
+  brand:'asus', 
+  ram:8,
+  upgradeRam(ramU:number):number{
+    return this.ram+ramU
+  }
+}
+omen.storage=256
+console.log('the upgraded ram '+ omen.upgradeRam(4))
+console.log(omen);
