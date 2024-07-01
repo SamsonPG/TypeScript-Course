@@ -1,1 +1,5 @@
-console.log('tasks');
+const btn= document.querySelector('.test-btn')!;
+
+
+
+
